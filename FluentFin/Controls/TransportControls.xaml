@@ -333,6 +333,13 @@
                     </AppBarButton>
 
                     <AppBarButton
+                        x:Name="ToggleSidebarButton"
+                        Click="ToggleSidebarButton_Click"
+                        Icon="{ui:FontIcon Glyph=&#xE743;}"
+                        IsTabStop="False"
+                        Label="Toggle Sidebar" />
+
+                    <AppBarButton
                         x:Name="FullWindowButton"
                         x:FieldModifier="Public"
                         IsTabStop="False"

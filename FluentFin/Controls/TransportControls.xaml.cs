@@ -5,6 +5,7 @@ using System.Windows.Input;
 using CommunityToolkit.WinUI;
 using FluentFin.Core;
 using FluentFin.Core.Contracts.Services;
+using FluentFin.UI.Core.Contracts.Services;
 using FluentFin.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -216,6 +217,12 @@ public sealed partial class TransportControls : UserControl
 	private async Task TogglePlayPause()
 	{
 		await Player.TogglePlayPlause(JellyfinClient);
+	}
+
+	private void ToggleSidebarButton_Click(object sender, RoutedEventArgs e)
+	{
+		var navigationViewService = App.GetService<INavigationViewService>();
+		navigationViewService.TogglePane();
 	}
 }
 
