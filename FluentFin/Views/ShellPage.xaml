@@ -19,7 +19,7 @@
         x:FieldModifier="Public"
         HighContrastAdjustment="None"
         IsBackButtonVisible="Collapsed"
-        IsPaneOpen="False"
+        IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"
         IsPaneToggleButtonVisible="False"
         IsSettingsVisible="False"
         Style="{StaticResource MainNavigationViewStyle}">

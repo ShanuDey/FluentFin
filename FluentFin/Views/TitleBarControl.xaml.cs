@@ -2,6 +2,7 @@ using FluentFin.Core.ViewModels;
 using FluentFin.ViewModels;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
 
 namespace FluentFin.Views;
 
@@ -32,5 +33,11 @@ public sealed partial class TitleBarControl : UserControl
 		}
 
 		SearchBox.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);
+	}
+
+	private void ToggleSidebarButton_Click(object sender, RoutedEventArgs e)
+	{
+		var shellViewModel = App.GetService<ShellViewModel>();
+		shellViewModel.ToggleSidebarCommand.Execute(null);
 	}
 }

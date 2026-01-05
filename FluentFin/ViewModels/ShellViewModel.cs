@@ -1,5 +1,6 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using FluentFin.Contracts.Services;
 using FluentFin.Contracts.ViewModels;
 using FluentFin.Core;
@@ -14,10 +15,17 @@ public partial class ShellViewModel : ObservableObject, INavigationAware
 {
 	[ObservableProperty] public partial bool IsBackEnabled { get; set; }
 	[ObservableProperty] public partial object? Selected { get; set; }
+	[ObservableProperty] public partial bool IsPaneOpen { get; set; } = false;
 
 	public INavigationService NavigationService { get; }
 	public INavigationViewService NavigationViewService { get; }
 	public bool IsReportingVisible { get; } = SessionInfo.HasPlaybackReporting();
+
+	[RelayCommand]
+	private void ToggleSidebar()
+	{
+		IsPaneOpen = !IsPaneOpen;
+	}
 
 	public ShellViewModel(INavigationService navigationService, INavigationViewService navigationViewService)
 	{

@@ -337,7 +337,7 @@
                         Click="ToggleSidebarButton_Click"
                         Icon="{ui:FontIcon Glyph=&#xE743;}"
                         IsTabStop="False"
-                        Label="Toggle Sidebar" />
+                        Label="Toggle Sidebar 1" />
 
                     <AppBarButton
                         x:Name="FullWindowButton"

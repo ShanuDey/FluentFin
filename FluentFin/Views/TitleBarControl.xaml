@@ -94,6 +94,17 @@
                 Orientation="Horizontal"
                 Spacing="10">
                 <Button
+                    x:Name="ToggleSidebarButton"
+                    Width="32"
+                    Height="32"
+                    Padding="0"
+                    BorderBrush="{ThemeResource CircleElevationBorderBrush}"
+                    CornerRadius="16"
+                    ToolTipService.ToolTip="Toggle Sidebar"
+                    Click="ToggleSidebarButton_Click">
+                    <FontIcon Glyph="&#xE700;" />
+                </Button>
+                <Button
                     Width="32"
                     Height="32"
                     Padding="0"
