@@ -17,12 +17,12 @@ jobs:
         runs-on: 'windows-latest'
         steps:
         -   name: 'Checkout'
-            uses: actions/checkout@v2
+            uses: actions/checkout@v4
   
         -   name: 'Install dotnet'
-            uses: actions/setup-dotnet@v1
+            uses: actions/setup-dotnet@v4
             with:
-                dotnet-version: '10.0'
+                dotnet-version: '10.0.x'
         
         -   name: 'Add msbuild to PATH'
             uses: microsoft/setup-msbuild@v1.1
@@ -45,16 +45,16 @@ jobs:
   
         -   name: 'Create Release'
             id: create_release
-            uses: actions/create-release@v1
+            uses: softprops/action-gh-release@v1
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             with:
                 tag_name: ${{ steps.version.outputs.version-without-v }}
-                release_name: ${{ steps.version.outputs.version-without-v }}
+                name: ${{ steps.version.outputs.version-without-v }}
 
         -   name: 'Add Exe to release'
-            uses: csexton/release-asset-action@v2
+            uses: softprops/action-gh-release@v1
+            env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             with:
-                github-token: ${{ secrets.GITHUB_TOKEN }}
-                pattern: Installer\Output\FluentFin.exe
-                release-url: ${{ steps.create_release.outputs.upload_url }}
+                files: Installer\Output\FluentFin.exe
